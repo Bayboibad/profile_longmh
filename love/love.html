@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ngày Yêu Nhau</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffd6e0, #ffeaea);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff0f5;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 8px 8px 16px #e5b4c6, -8px -8px 16px #ffffff;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .avatars {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffb6c1;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      color: #cc3366;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .since {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .counter {
+      font-size: 48px;
+      color: #ff3366;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
+
+      .avatar {
+        width: 65px;
+        height: 65px;
+      }
+
+      .counter {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="avatars">
+      <img src="https://i.pinimg.com/736x/52/1b/3c/521b3ce5d1f898f91d97f049f904a834.jpg" alt="Người 1" class="avatar" />
+      <img src="https://i.pinimg.com/originals/27/5a/7f/275a7fd8d499612b72677df1d8be63f4.jpg" alt="Người 2" class="avatar" />
+    </div>
+
+    <h1>💖 Chúng mình đã yêu nhau 💖</h1>
+    <p class="since">Từ ngày: <span id="start-date">14/02/2023</span></p>
+    <div class="counter">
+      <span id="days">...</span> ngày rồi 🥰
+    </div>
+  </div>
+
+  <script>
+    const startDate = new Date("2023-02-14");
+
+    const startDateText = document.getElementById("start-date");
+    const daysText = document.getElementById("days");
+
+    function formatDate(date) {
+      const d = date.getDate().toString().padStart(2, "0");
+      const m = (date.getMonth() + 1).toString().padStart(2, "0");
+      const y = date.getFullYear();
+      return `${d}/${m}/${y}`;
+    }
+
+    function updateCounter() {
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      startDateText.textContent = formatDate(startDate);
+      daysText.textContent = diffDays;
+    }
+
+    updateCounter();
+  </script>
+</body>
+</html>

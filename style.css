@@ -1,0 +1,103 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url(https://scontent.fhan5-6.fna.fbcdn.net/v/t1.15752-9/523461602_1088140666078113_4552862102061134307_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ropeMLEXDOkQ7kNvwFX4M3C&_nc_oc=AdkY04EDDozliqFoHYlxblccy_jE1dSWhklvbDFEuP4bhl0M_zpl3UtITQaa-TXvst4&_nc_zt=23&_nc_ht=scontent.fhan5-6.fna&oh=03_Q7cD2wErhgjk815jSvAsLAiutCVC5x6UtKGHV6yDZVUfTkMnwg&oe=68AFBECE) no-repeat center center fixed;
+  background-size: cover;
+  /* background: #e0f0ff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: #e0f0ffe8;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #c8dce8,
+              -10px -10px 20px #f8ffff;
+  padding: 40px 30px;
+  text-align: center;
+  width: 320px;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #cde7ff;
+  box-shadow: inset 2px 2px 4px #b5cfe0,
+              inset -2px -2px 4px #ffffff;
+}
+
+h1 {
+  font-size: 24px;
+  color: #005c99;
+  margin-bottom: 10px;
+}
+
+.role {
+  font-size: 16px;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background: #e0f0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #0077cc;
+  box-shadow: inset 4px 4px 8px #c8dce8,
+              inset -4px -4px 8px #f8ffff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.icon:hover {
+  box-shadow: 4px 4px 8px #c8dce8,
+              -4px -4px 8px #f8ffff;
+  transform: translateY(-3px);
+  color: #005c99;
+}
+
+.icon.heart i {
+  color: #ff4d6d;
+}
+
+.icon.heart:hover i {
+  color: #cc0033;
+}
+#snow-canvas {
+  filter: blur(1px);
+}
