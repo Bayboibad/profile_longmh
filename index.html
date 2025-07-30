@@ -10,15 +10,29 @@
 </head>
 
 <body>
+
+    <!-- Icon và tên bài hát ở góc trái -->
+  <div class="music-box" onclick="playMusic()">
+    <i class="fas fa-music"></i>
+    <span>id 072019 - W/n</span>
+  </div>
+
+  <!-- Hiệu ứng tuyết -->
   <canvas id="snow-canvas" style="position:fixed; top:0; left:0; z-index:9999; pointer-events:none;"></canvas>
 
+  <!-- Thẻ nhạc nền (ẩn) -->
+  <audio id="bg-music" autoplay loop>
+    <source src="/music/Id072019-WN-10597501.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Thông tin cá nhân -->
   <div class="card">
     <img
       src="https://scontent.fhan5-8.fna.fbcdn.net/v/t1.15752-9/523862116_765537155855718_4768612133434894844_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=2h5EAaOjExMQ7kNvwEGIagb&_nc_oc=Adm7D8oovr9PbuUwwZrJmeWsSOKtbxIMFhad43ex_5leC1GfoFQWKH7lDq2V3Z5e6jM&_nc_zt=23&_nc_ht=scontent.fhan5-8.fna&oh=03_Q7cD2wHil9_qQQvc7YP2MOmDskO6JJTwHznF0vfm7OEfGtwfKw&oe=68B0F241"
       alt="Ảnh đại diện" class="avatar" />
     <h1>Tớ là Nonggg</h1>
-    <p class="role">Game thủ chuyên nghiệp – PUBG Mobile</p>
-    <p class="desc">Đam mê chiến đấu từng trận, luôn sẵn sàng “gánh team” mọi lúc mọi nơi.</p>
+    <p class="role">Game thủ nghiệp dư – PUBG Mobile</p>
+    <p class="desc">Đam mê chiến đấu từng trận, luôn sẵn sàng “Gánh cục tạ cho team” mọi lúc mọi nơi.</p>
 
     <div class="social">
       <a href="https://facebook.com/profile" class="icon" target="_blank">
@@ -34,13 +48,37 @@
       <a href="https://instagram.com/_longmh_003" class="icon" target="_blank">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="#" class="icon heart" title="Yêu thích">
+      <!-- Icon trái tim để bật nhạc -->
+      <a href="#" class="icon heart" title="Yêu thích" onclick="playMusic()">
         <i class="fas fa-heart"></i>
       </a>
     </div>
   </div>
 
+  <!-- Script hiệu ứng tuyết -->
   <script src="snow.js"></script>
+
+  <!-- Script bật nhạc -->
+  <script>
+  let isPlaying = false;
+
+  function playMusic() {
+    const music = document.getElementById('bg-music');
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        console.log("🎵 Đang phát nhạc");
+      }).catch((err) => {
+        console.log("Autoplay bị chặn:", err);
+      });
+    } else {
+      music.pause();
+      isPlaying = false;
+      console.log("⏸️ Đã tắt nhạc");
+    }
+  }
+</script>
+
 </body>
 
 </html>

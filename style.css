@@ -101,3 +101,27 @@ h1 {
 #snow-canvas {
   filter: blur(1px);
 }
+.music-box {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .music-box i {
+      font-size: 18px;
+      color: #ff4d4d;
+    }
+
+    .music-box:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
