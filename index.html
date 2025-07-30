@@ -32,12 +32,25 @@
     .music-box:hover {
       background: rgba(255, 255, 255, 0.1);
     }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ccc;
+      z-index: 9999;
+    }
   </style>
 </head>
 
 <body>
 
-    <!-- Icon và tên bài hát ở góc trái -->
+  <!-- Icon và tên bài hát ở góc trái -->
   <div class="music-box" onclick="playMusic()">
     <i class="fas fa-music"></i>
     <span>id 072019 - W/n</span>
@@ -75,7 +88,7 @@
         <i class="fab fa-instagram"></i>
       </a>
       <!-- Icon trái tim để bật nhạc -->
-      <a href="#" class="icon heart" title="Yêu thích" onclick="playMusic()">
+      <a href="#" class="icon heart" title="Yêu thích">
         <i class="fas fa-heart"></i>
       </a>
     </div>
@@ -86,24 +99,29 @@
 
   <!-- Script bật nhạc -->
   <script>
-  let isPlaying = false;
+    let isPlaying = false;
 
-  function playMusic() {
-    const music = document.getElementById('bg-music');
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        console.log("🎵 Đang phát nhạc");
-      }).catch((err) => {
-        console.log("Autoplay bị chặn:", err);
-      });
-    } else {
-      music.pause();
-      isPlaying = false;
-      console.log("⏸️ Đã tắt nhạc");
+    function playMusic() {
+      const music = document.getElementById('bg-music');
+      if (!isPlaying) {
+        music.play().then(() => {
+          isPlaying = true;
+          console.log("🎵 Đang phát nhạc");
+        }).catch((err) => {
+          console.log("Autoplay bị chặn:", err);
+        });
+      } else {
+        music.pause();
+        isPlaying = false;
+        console.log("⏸️ Đã tắt nhạc");
+      }
     }
-  }
-</script>
+  </script>
+
+  <!-- Bản quyền ở dưới cùng -->
+  <footer>
+    &copy; 2025 <strong>longmh003</strong>. Bản quyền đã được bảo lưu.
+  </footer>
 
 </body>
 
